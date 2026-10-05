@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<ItemGroup>
+		<ProjectReference Include="..\FiapCloudGames.Catalog.Application\FiapCloudGames.Catalog.Application.csproj" />
+		<ProjectReference Include="..\FiapCloudGames.Catalog.Domain\FiapCloudGames.Catalog.Domain.csproj" />
+		<PackageReference Include="FiapCloudGames.BuildingBlocks" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
+	</ItemGroup>
+	<ItemGroup>
+		<InternalsVisibleTo Include="FiapCloudGames.Catalog.Migrations" />
+		<!--<InternalsVisibleTo Include="FiapCloudGames.Catalog.Database.IntegrationTests" />
+		<InternalsVisibleTo Include="FiapCloudGames.Catalog.IntegrationTests" />-->
+	</ItemGroup>
+</Project>

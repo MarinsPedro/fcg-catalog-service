@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/FiapCloudGames.Catalog.Api/FiapCloudGames.Catalog.Api.csproj" />
+    <Project Path="src/FiapCloudGames.Catalog.Application/FiapCloudGames.Catalog.Application.csproj" />
+    <Project Path="src/FiapCloudGames.Catalog.Domain/FiapCloudGames.Catalog.Domain.csproj" />
+    <Project Path="src/FiapCloudGames.Catalog.Infrastructure/FiapCloudGames.Catalog.Infrastructure.csproj" />
+    <Project Path="src/FiapCloudGames.Catalog.Migrations/FiapCloudGames.Catalog.Migrations.csproj" />
+    <Project Path="src/FiapCloudGames.Catalog.Presentation/FiapCloudGames.Catalog.Presentation.csproj" />
+  </Folder>
+</Solution>
