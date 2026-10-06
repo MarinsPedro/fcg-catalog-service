@@ -10,7 +10,7 @@ public sealed class GetGameService(IGameRepository gameRepository)
         var game = await gameRepository.GetAsync(id, cancellationToken);
 
         return game is null
-            ? throw AppException.NotFound("Game não encontrado") 
+            ? throw AppException.NotFound("Jogo não encontrado") 
             : CatalogApplicationMappings.ToResult(game);
     }
 }

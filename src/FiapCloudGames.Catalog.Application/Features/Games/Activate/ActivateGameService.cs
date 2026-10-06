@@ -13,7 +13,7 @@ public sealed class ActivateGameService(
         var game = await gameRepository.GetAsync(id, cancellationToken)
             ?? throw AppException.NotFound("Game não econtrado");
 
-        if (!game.IsActive)
+        if (game.IsActive)
             throw AppException.Conflict("Game já está ativado.");
 
         game.Activate();

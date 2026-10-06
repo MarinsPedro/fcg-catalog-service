@@ -33,24 +33,6 @@ public static class DependencyInjection
                     .RequireServiceToken()
                     .RequireClaim(FiapClaimTypes.Scope, "catalog.games.write"));
             options.AddPolicy(
-                CatalogPolicies.ClientsCreate,
-                policy => policy
-                    .RequireAuthenticatedUser()
-                    .RequireServiceToken()
-                    .RequireClaim(FiapClaimTypes.Scope, "catalog.clients.create"));
-            options.AddPolicy(
-                CatalogPolicies.ClientsRead,
-                policy => policy
-                    .RequireAuthenticatedUser()
-                    .RequireServiceToken()
-                    .RequireClaim(FiapClaimTypes.Scope, "catalog.clients.read"));
-            options.AddPolicy(
-                CatalogPolicies.ClientsWrite,
-                policy => policy
-                    .RequireAuthenticatedUser()
-                    .RequireServiceToken()
-                    .RequireClaim(FiapClaimTypes.Scope, "catalog.clients.write"));
-            options.AddPolicy(
                 CatalogPolicies.AuditRead,
                 policy => policy
                     .RequireAuthenticatedUser()
