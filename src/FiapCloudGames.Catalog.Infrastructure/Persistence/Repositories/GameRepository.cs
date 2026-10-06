@@ -1,4 +1,5 @@
 ﻿using FiapCloudGames.Catalog.Domain.Games;
+using FiapCloudGames.Catalog.Domain.Games.Queries;
 using Microsoft.EntityFrameworkCore;
 
 namespace FiapCloudGames.Catalog.Infrastructure.Persistence.Repositories;
@@ -22,13 +23,23 @@ internal sealed class GameRepository(CatalogDbContext dbContext) : IGameReposito
             .ToListAsync(cancellationToken);
     }
 
-    public async Task<IReadOnlyList<Game>> ListAsync(bool onlyActive, CancellationToken cancellationToken)
+    public async Task<IReadOnlyList<Game>> ListAsync(GameQueryParameters parameters, CancellationToken cancellationToken)
     {
         var query = dbContext.Games.AsNoTracking();
 
-        if (onlyActive)
+        if (parameters.Title is not null)
+            query = query.Where(game => EF.Functions.Like(game.Title, $"%{parameters.Title}%"));
+
+        if (parameters.MaxPrice is not null)
+            query = query.Where(game => game.BasePrice.Amount <= parameters.MaxPrice);
+
+        if (parameters.OnlyActive)
             query = query.Where(game => game.IsActive);
 
-        return await query.OrderBy(game => game.Title).ToListAsync(cancellationToken);
+        return await query
+            .OrderBy(game => game.Title)
+            .Skip(parameters.Offset)
+            .Take(parameters.Limit)
+            .ToListAsync(cancellationToken);
     }
 }

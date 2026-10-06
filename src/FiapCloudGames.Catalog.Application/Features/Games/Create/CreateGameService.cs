@@ -12,7 +12,7 @@ public sealed class CreateGameService(
 {
     public async Task<GameResult> ExecuteAsync(CreateGameInput input, CancellationToken cancellationToken)
     {
-        // TODO: validações vão aqui?
+        // TODO: validações vão aqui? sim, validações sempre vão na service.
 
         logger.LogInformation("Criando registro do jogo.");
 

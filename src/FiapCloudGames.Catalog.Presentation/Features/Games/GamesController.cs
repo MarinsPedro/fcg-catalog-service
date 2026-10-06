@@ -23,10 +23,11 @@ public sealed class GamesController : ControllerBase
     [ProducesResponseType(typeof(IReadOnlyList<GameResponse>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiProblemDetails), StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<IReadOnlyList<GameResponse>>> ListAsync(
+        [FromQuery] GameQueryRequest request,
         [FromServices] ListGameService service,
         CancellationToken cancellation)
     {
-        var results = await service.ExecuteAsync(onlyActive: true, cancellation);
+        var results = await service.ExecuteAsync(request.ToInput(), cancellation); // TODO: mudar de ToInput para ToFilter ?
         return Ok(results);
     }
 
