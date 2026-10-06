@@ -16,7 +16,7 @@ namespace FiapCloudGames.Catalog.Presentation.Features.Games;
 [Route("v1/games")]
 public sealed class GamesController : ControllerBase
 {
-    private const string GetByIdRoute = "Catalog.Games.GetById";
+    private const string GetByIdRoute = "Catalog.Games.GetByIdAsync";
 
     [AllowAnonymous]
     [HttpGet]
@@ -31,11 +31,11 @@ public sealed class GamesController : ControllerBase
     }
 
     [AllowAnonymous]
-    [HttpGet("{id:guid}")]
+    [HttpGet("{id:guid}", Name = GetByIdRoute)]
     [ProducesResponseType(typeof(GameResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiProblemDetails), StatusCodes.Status404NotFound)]
     [ProducesResponseType(typeof(ApiProblemDetails), StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<GameResponse>> GetAsync(
+    public async Task<ActionResult<GameResponse>> GetByIdAsync(
         [FromRoute] Guid id,
         [FromServices] GetGameService service,
         CancellationToken cancellationToken)
