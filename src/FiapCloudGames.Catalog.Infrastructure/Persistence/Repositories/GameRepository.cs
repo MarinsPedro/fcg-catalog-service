@@ -31,7 +31,7 @@ internal sealed class GameRepository(CatalogDbContext dbContext) : IGameReposito
             query = query.Where(game => EF.Functions.Like(game.Title, $"%{parameters.Title}%"));
 
         if (parameters.MaxPrice is not null)
-            query = query.Where(game => game.BasePrice.Amount <= parameters.MaxPrice);
+            query = query.Where(game => game.BasePrice <= GamePrice.Create(parameters.MaxPrice.Value));
 
         if (parameters.OnlyActive)
             query = query.Where(game => game.IsActive);

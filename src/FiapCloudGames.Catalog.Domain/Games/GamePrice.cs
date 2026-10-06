@@ -19,5 +19,21 @@ public readonly record struct GamePrice
         return new GamePrice(decimal.Round(amount, 2, MidpointRounding.ToEven));
     }
 
+    #region Implementação de comparativos para traduzir a query para o EF.
+
     public override string ToString() => Amount.ToString("0.00");
+
+    public static bool operator <=(GamePrice left, GamePrice right)
+        => left.Amount <= right.Amount;
+
+    public static bool operator >=(GamePrice left, GamePrice right)
+        => left.Amount >= right.Amount;
+
+    public static bool operator <(GamePrice left, GamePrice right)
+        => left.Amount < right.Amount;
+
+    public static bool operator >(GamePrice left, GamePrice right)
+        => left.Amount > right.Amount;
+
+    #endregion
 }
