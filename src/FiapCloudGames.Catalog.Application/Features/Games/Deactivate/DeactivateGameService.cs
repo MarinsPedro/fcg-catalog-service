@@ -1,15 +1,19 @@
 ﻿using FiapCloudGames.BuildingBlocks.Exceptions;
 using FiapCloudGames.Catalog.Application.Abstractions.Persistence;
 using FiapCloudGames.Catalog.Domain.Games;
+using Microsoft.Extensions.Logging;
 
 namespace FiapCloudGames.Catalog.Application.Features.Games.Deactivate;
 
 public sealed class DeactivateGameService(
     IGameRepository gameRepository,
-    ICatalogUnitOfWork unitOfWork)
+    ICatalogUnitOfWork unitOfWork,
+    ILogger<DeactivateGameService> logger)
 {
     public async Task ExecuteAsync(Guid id, CancellationToken cancellationToken)
     {
+        logger.LogInformation("Iniciando desativação do jogo.");
+
         var game = await gameRepository.GetAsync(id, cancellationToken)
             ?? throw AppException.NotFound("Game não econtrado");
 
@@ -19,5 +23,7 @@ public sealed class DeactivateGameService(
         game.Deactivate();
 
         await unitOfWork.SaveChangesAsync(cancellationToken);
+
+        logger.LogInformation("Jogo desativado com sucesso.");
     }
 }
