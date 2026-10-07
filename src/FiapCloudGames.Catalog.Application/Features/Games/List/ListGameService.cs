@@ -27,12 +27,12 @@ public sealed class ListGameService(
     private static void CheckInput(GameQueryInput input)
     {
         if (input.Page < 1)
-            throw AppException.Conflict("Page deve ser maior ou igual a 1.");
+            throw AppException.Conflict("O valor de página deve ser maior ou igual a 1.");
 
         if (input.PageSize < 1)
-            throw AppException.Conflict("Tamanho da página deve ser maior ou igual a 1.");
+            throw AppException.Conflict("O valor do tamanho da página deve ser maior ou igual a 1.");
 
         if (input.PageSize > 100)
-            throw AppException.Conflict("Tamanho da página deve ser menor ou igual a 100.");
+            throw AppException.Conflict("O valor do tamanho da página deve ser menor ou igual a 100.");
     }
 }
