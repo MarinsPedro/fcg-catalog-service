@@ -7,4 +7,7 @@
     <Project Path="src/FiapCloudGames.Catalog.Migrations/FiapCloudGames.Catalog.Migrations.csproj" />
     <Project Path="src/FiapCloudGames.Catalog.Presentation/FiapCloudGames.Catalog.Presentation.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/FiapCloudGames.Catalog.UnitTests/FiapCloudGames.Catalog.UnitTests.csproj" Id="1845b8b2-db3e-450d-a9eb-ff69a8a24e5a" />
+  </Folder>
 </Solution>

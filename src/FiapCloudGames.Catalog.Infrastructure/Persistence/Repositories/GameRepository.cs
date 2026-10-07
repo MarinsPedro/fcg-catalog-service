@@ -9,8 +9,11 @@ internal sealed class GameRepository(CatalogDbContext dbContext) : IGameReposito
     public async Task AddAsync(Game game, CancellationToken cancellationToken)
         => await dbContext.Games.AddAsync(game, cancellationToken);
 
-    public Task<Game?> GetAsync(Guid id, CancellationToken cancellationToken)
-        => dbContext.Games.SingleOrDefaultAsync(game => game.Id == id, cancellationToken);
+    public async Task<Game?> GetAsync(Guid id, CancellationToken cancellationToken)
+    {
+        var result = await dbContext.Games.SingleOrDefaultAsync(game => game.Id == id, cancellationToken);
+        return result;
+    }
 
     public async Task<IReadOnlyList<Game>> ListByIdsAsync(IReadOnlyCollection<Guid> ids, CancellationToken cancellationToken)
     {
@@ -36,10 +39,12 @@ internal sealed class GameRepository(CatalogDbContext dbContext) : IGameReposito
         if (parameters.OnlyActive)
             query = query.Where(game => game.IsActive);
 
-        return await query
-            .OrderBy(game => game.Title)
-            .Skip(parameters.Offset)
-            .Take(parameters.Limit)
-            .ToListAsync(cancellationToken);
+        var result = await query
+                        .OrderBy(game => game.Title)
+                        .Skip(parameters.Offset)
+                        .Take(parameters.Limit)
+                        .ToListAsync(cancellationToken);
+
+        return result;
     }
 }

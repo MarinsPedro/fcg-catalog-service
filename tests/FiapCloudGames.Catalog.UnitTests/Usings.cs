@@ -1,0 +1,13 @@
+﻿global using FiapCloudGames.BuildingBlocks.Exceptions;
+global using FiapCloudGames.Catalog.Application.Abstractions.Persistence;
+global using FiapCloudGames.Catalog.Application.Features.Games.Activate;
+global using FiapCloudGames.Catalog.Application.Features.Games.Create;
+global using FiapCloudGames.Catalog.Application.Features.Games.Deactivate;
+global using FiapCloudGames.Catalog.Application.Features.Games.Get;
+global using FiapCloudGames.Catalog.Application.Features.Games.List;
+global using FiapCloudGames.Catalog.Application.Features.Games.Update;
+global using FiapCloudGames.Catalog.Domain.Common;
+global using FiapCloudGames.Catalog.Domain.Games;
+global using FiapCloudGames.Catalog.Domain.Games.Queries;
+global using FiapCloudGames.Catalog.UnitTests.Support;
+global using Microsoft.Extensions.Logging.Abstractions;
