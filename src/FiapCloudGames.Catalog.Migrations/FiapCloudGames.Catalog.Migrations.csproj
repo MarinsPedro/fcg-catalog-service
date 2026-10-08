@@ -20,8 +20,8 @@
 			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
 		</None>
 	</ItemGroup>
-	<!--<ItemGroup>
-		<InternalsVisibleTo Include="FiapCloudGames.Identity.Database.IntegrationTests" />
-		<InternalsVisibleTo Include="FiapCloudGames.Identity.IntegrationTests" />
-	</ItemGroup>-->
+	<ItemGroup>
+		<InternalsVisibleTo Include="FiapCloudGames.Catalog.Database.IntegrationTests" />
+		<!--<InternalsVisibleTo Include="FiapCloudGames.Catalog.IntegrationTests" />-->
+	</ItemGroup>
 </Project>

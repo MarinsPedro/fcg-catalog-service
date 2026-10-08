@@ -9,7 +9,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<InternalsVisibleTo Include="FiapCloudGames.Catalog.Migrations" />
-		<!--<InternalsVisibleTo Include="FiapCloudGames.Catalog.Database.IntegrationTests" />
-		<InternalsVisibleTo Include="FiapCloudGames.Catalog.IntegrationTests" />-->
+		<InternalsVisibleTo Include="FiapCloudGames.Catalog.Database.IntegrationTests" />
+		<!--<InternalsVisibleTo Include="FiapCloudGames.Catalog.IntegrationTests" />-->
 	</ItemGroup>
 </Project>
