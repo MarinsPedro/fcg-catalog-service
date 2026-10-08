@@ -1,5 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<UserSecretsId>56d154c6-e6c1-47af-879d-010d6729005a</UserSecretsId>
+	</PropertyGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\FiapCloudGames.Catalog.Infrastructure\FiapCloudGames.Catalog.Infrastructure.csproj" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" />

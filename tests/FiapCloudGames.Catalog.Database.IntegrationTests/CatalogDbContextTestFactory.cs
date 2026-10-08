@@ -1,8 +1,4 @@
-﻿using FiapCloudGames.Catalog.Infrastructure.Persistence;
-using FiapCloudGames.Catalog.Migrations.Configuration;
-using Microsoft.EntityFrameworkCore;
-
-namespace FiapCloudGames.Catalog.Database.IntegrationTests;
+﻿namespace FiapCloudGames.Catalog.Database.IntegrationTests;
 
 internal static class CatalogDbContextTestFactory
 {

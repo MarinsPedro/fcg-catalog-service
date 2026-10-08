@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-
-namespace FiapCloudGames.Catalog.Database.IntegrationTests;
+﻿namespace FiapCloudGames.Catalog.Database.IntegrationTests;
 
 public sealed class EfModelConventionTests
 {

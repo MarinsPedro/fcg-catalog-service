@@ -1,9 +1,4 @@
-﻿using FiapCloudGames.Catalog.Migrations.DesignTime;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace FiapCloudGames.Catalog.Database.IntegrationTests;
+﻿namespace FiapCloudGames.Catalog.Database.IntegrationTests;
 
 public sealed class EfMigrationConventionTests
 {
