@@ -2,8 +2,8 @@
 
 public class ArchitectureRulesTests
 {
-    [Fact]
-    public void ProjectReferences_FollowCleanArchitectureDirection()
+    [Fact(DisplayName = "Verificar referências de projeto - devem seguir a direção da arquitetura limpa")]
+    public void Check_ProjectReferences_FollowCleanArchitectureDirection()
     {
         AssertProjectReferences("Domain");
         AssertProjectReferences("Application", "Domain");
@@ -13,8 +13,8 @@ public class ArchitectureRulesTests
         AssertProjectReferences("Migrations", "Infrastructure");
     }
 
-    [Fact]
-    public void UnitTests_ReferenceOnlyDomainAndApplication()
+    [Fact(DisplayName = "Verificar referências de teste unitário - devem referenciar apenas Domain e Application")]
+    public void Check_UnitTests_ReferenceOnlyDomainAndApplication()
     {
         var root = FindRepositoryRoot();
         var projectPath = Path.Combine(
@@ -53,8 +53,8 @@ public class ArchitectureRulesTests
                 StringComparison.OrdinalIgnoreCase));
     }
 
-    [Fact]
-    public void Domain_DoesNotReferenceOuterLayersOrFrameworks()
+    [Fact(DisplayName = "Verificar referências do domínio - não devem referenciar camadas externas ou frameworks")]
+    public void Check_Domain_DoesNotReferenceOuterLayersOrFrameworks()
     {
         AssertDoesNotReference(
             typeof(Game).Assembly,
@@ -65,8 +65,8 @@ public class ArchitectureRulesTests
             "Microsoft.EntityFrameworkCore");
     }
 
-    [Fact]
-    public void Application_DoesNotReferenceOuterLayersOrHttpAndDataFrameworks()
+    [Fact(DisplayName = "Verificar referências da aplicação - não devem referenciar camadas externas ou frameworks HTTP e de dados")]
+    public void Check_Application_DoesNotReferenceOuterLayersOrHttpAndDataFrameworks()
     {
         AssertDoesNotReference(
             typeof(FiapCloudGames.Catalog.Application.DependencyInjection).Assembly,
@@ -76,8 +76,8 @@ public class ArchitectureRulesTests
             "Microsoft.EntityFrameworkCore");
     }
 
-    [Fact]
-    public void EfMigrations_LiveOnlyInMigrationsExecutable()
+    [Fact(DisplayName = "Verificar referências das migrations do Entity Framework - devem estar apenas no projeto de migrations")]
+    public void Check_EfMigrations_LiveOnlyInMigrationsExecutable()
     {
         var root = FindRepositoryRoot();
         var infrastructureMigrations = Path.Combine(

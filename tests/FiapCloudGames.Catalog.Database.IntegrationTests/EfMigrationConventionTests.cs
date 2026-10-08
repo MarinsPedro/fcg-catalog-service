@@ -2,16 +2,16 @@
 
 public sealed class EfMigrationConventionTests
 {
-    [Fact]
-    public void Migrations_ShouldBeDiscoverable()
+    [Fact(DisplayName = "Obter migrations - devem ser descobertas")]
+    public void Get_Migrations_ShouldBeDiscoverable()
     {
         using var context = CatalogDbContextTestFactory.Create();
 
         Assert.NotEmpty(context.Database.GetMigrations());
     }
 
-    [Fact]
-    public void Model_ShouldHaveNoPendingChanges()
+    [Fact(DisplayName = "Obter modelo - não deve ter alterações pendentes")]
+    public void Get_Model_ShouldHaveNoPendingChanges()
     {
         using var context = CatalogDbContextTestFactory.Create();
 
@@ -20,8 +20,8 @@ public sealed class EfMigrationConventionTests
             "O modelo do Catalog diverge do snapshot de migrations.");
     }
 
-    [Fact]
-    public void DbContext_ShouldUseMigrationsProjectAssembly()
+    [Fact(DisplayName = "Obter DbContext - deve usar o assembly do projeto de migrations")]
+    public void Get_DbContext_ShouldUseMigrationsProjectAssembly()
     {
         using var context = CatalogDbContextTestFactory.Create();
         var migrationsAssembly = context.GetService<IMigrationsAssembly>();

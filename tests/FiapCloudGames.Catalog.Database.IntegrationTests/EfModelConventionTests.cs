@@ -2,8 +2,8 @@
 
 public sealed class EfModelConventionTests
 {
-    [Fact]
-    public void Entities_ShouldUseIdentitySchemaAndLowerSnakeCase()
+    [Fact(DisplayName = "Verificar entidades - deve usar esquema de identidade e nomenclatura lower_snake_case")]
+    public void Check_Entities_ShouldUseIdentitySchemaAndLowerSnakeCase()
     {
         using var context = CatalogDbContextTestFactory.Create();
         var entities = context.Model.GetEntityTypes().ToArray();
@@ -29,8 +29,8 @@ public sealed class EfModelConventionTests
         }
     }
 
-    [Fact]
-    public void Entities_ShouldHavePrimaryKeysAndBelongToIdentityDomain()
+    [Fact(DisplayName = "Verificar entidades - devem ter chaves primárias e pertencer ao domínio de identidade")]
+    public void Check_Entities_ShouldHavePrimaryKeysAndBelongToIdentityDomain()
     {
         using var context = CatalogDbContextTestFactory.Create();
 
@@ -44,8 +44,8 @@ public sealed class EfModelConventionTests
         }
     }
 
-    [Fact]
-    public void DecimalProperties_ShouldHaveExplicitPrecision()
+    [Fact(DisplayName = "Verificar propriedades decimais - devem ter precisão explícita")]
+    public void Check_DecimalProperties_ShouldHaveExplicitPrecision()
     {
         using var context = CatalogDbContextTestFactory.Create();
         var decimalProperties = context.Model
