@@ -1,6 +1,4 @@
-﻿using FiapCloudGames.Catalog.Domain.Games;
-
-namespace FiapCloudGames.Catalog.Application.Features.Games;
+﻿namespace FiapCloudGames.Catalog.Application.Features.Games;
 
 // TODO: aqui foi seguindo o padrão conforme o projeto Identity, mas não seria o correto um nome como "GameMappings"
 internal static class CatalogApplicationMappings

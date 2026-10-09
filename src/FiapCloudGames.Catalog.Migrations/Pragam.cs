@@ -1,8 +1,4 @@
-﻿using FiapCloudGames.Catalog.Infrastructure.Persistence;
-using FiapCloudGames.Catalog.Migrations.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace FiapCloudGames.Catalog.Migrations;
+﻿namespace FiapCloudGames.Catalog.Migrations;
 
 public static class Program
 {

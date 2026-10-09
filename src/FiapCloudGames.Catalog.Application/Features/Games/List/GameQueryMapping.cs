@@ -1,6 +1,4 @@
-﻿using FiapCloudGames.Catalog.Domain.Games.Queries;
-
-namespace FiapCloudGames.Catalog.Application.Features.Games.List;
+﻿namespace FiapCloudGames.Catalog.Application.Features.Games.List;
 
 public static class GameQueryMapping
 {

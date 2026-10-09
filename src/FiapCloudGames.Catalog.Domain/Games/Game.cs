@@ -1,6 +1,4 @@
-﻿using FiapCloudGames.Catalog.Domain.Common;
-
-namespace FiapCloudGames.Catalog.Domain.Games;
+﻿namespace FiapCloudGames.Catalog.Domain.Games;
 
 public sealed class Game
 {

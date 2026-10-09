@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace FiapCloudGames.Catalog.Migrations.Configuration;
+﻿namespace FiapCloudGames.Catalog.Migrations.Configuration;
 
 internal static class MigrationDbContextOptions
 {

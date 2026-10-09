@@ -1,8 +1,4 @@
-﻿using FiapCloudGames.Catalog.Infrastructure.Persistence;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
-
-namespace FiapCloudGames.Catalog.Infrastructure.Health;
+﻿namespace FiapCloudGames.Catalog.Infrastructure.Health;
 
 internal sealed class CatalogDatabaseHealthCheck(IServiceScopeFactory scopeFactory) : IHealthCheck
 {

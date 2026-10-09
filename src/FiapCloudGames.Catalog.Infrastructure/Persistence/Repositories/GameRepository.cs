@@ -1,9 +1,4 @@
-﻿using FiapCloudGames.Catalog.Domain.Games;
-using FiapCloudGames.Catalog.Domain.Games.Queries;
-using FiapCloudGames.Catalog.Domain.Pagination;
-using Microsoft.EntityFrameworkCore;
-
-namespace FiapCloudGames.Catalog.Infrastructure.Persistence.Repositories;
+﻿namespace FiapCloudGames.Catalog.Infrastructure.Persistence.Repositories;
 
 internal sealed class GameRepository(CatalogDbContext dbContext) : IGameRepository
 {

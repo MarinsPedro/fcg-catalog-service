@@ -1,8 +1,4 @@
-﻿using FiapCloudGames.BuildingBlocks.Exceptions;
-using FiapCloudGames.Catalog.Domain.Games;
-using Microsoft.Extensions.Logging;
-
-namespace FiapCloudGames.Catalog.Application.Features.Games.Get;
+﻿namespace FiapCloudGames.Catalog.Application.Features.Games.Get;
 
 public sealed class GetGameService(IGameRepository gameRepository, ILogger<GetGameService> logger)
 {

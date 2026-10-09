@@ -1,10 +1,4 @@
-﻿using FiapCloudGames.Catalog.Domain.Games;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using System.Reflection.Emit;
-
-namespace FiapCloudGames.Catalog.Infrastructure.Persistence.Configurations;
+﻿namespace FiapCloudGames.Catalog.Infrastructure.Persistence.Configurations;
 
 internal sealed class GameConfiguration : IEntityTypeConfiguration<Game>
 {

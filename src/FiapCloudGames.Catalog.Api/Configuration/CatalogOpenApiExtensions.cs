@@ -1,6 +1,4 @@
-﻿using Microsoft.OpenApi;
-
-namespace FiapCloudGames.Catalog.Api.Configuration;
+﻿namespace FiapCloudGames.Catalog.Api.Configuration;
 
 internal static class CatalogOpenApiExtensions
 {

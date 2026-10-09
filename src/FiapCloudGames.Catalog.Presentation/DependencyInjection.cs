@@ -1,8 +1,4 @@
-﻿using FiapCloudGames.BuildingBlocks.Authentication;
-using FiapCloudGames.Catalog.Presentation.Authorization;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace FiapCloudGames.Catalog.Presentation;
+﻿namespace FiapCloudGames.Catalog.Presentation;
 
 public static class DependencyInjection
 {

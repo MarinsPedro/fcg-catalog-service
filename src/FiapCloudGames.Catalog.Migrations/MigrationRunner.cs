@@ -1,11 +1,6 @@
-﻿using FiapCloudGames.Catalog.Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+﻿namespace FiapCloudGames.Catalog.Migrations;
 
-namespace FiapCloudGames.Catalog.Migrations;
-
-internal sealed class MigrationRunner(CatalogDbContext dbContext,
-    ILogger<MigrationRunner> logger)
+internal sealed class MigrationRunner(CatalogDbContext dbContext, ILogger<MigrationRunner> logger)
 {
     public async Task RunAsync(CancellationToken cancellationToken)
     {

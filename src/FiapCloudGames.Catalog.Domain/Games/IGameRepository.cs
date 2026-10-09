@@ -1,7 +1,4 @@
-﻿using FiapCloudGames.Catalog.Domain.Games.Queries;
-using FiapCloudGames.Catalog.Domain.Pagination;
-
-namespace FiapCloudGames.Catalog.Domain.Games;
+﻿namespace FiapCloudGames.Catalog.Domain.Games;
 
 public interface IGameRepository
 {

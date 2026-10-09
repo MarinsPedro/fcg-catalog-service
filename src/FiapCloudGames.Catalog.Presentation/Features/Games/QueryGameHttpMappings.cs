@@ -1,6 +1,4 @@
-﻿using FiapCloudGames.Catalog.Application.Features.Games.List;
-
-namespace FiapCloudGames.Catalog.Presentation.Features.Games;
+﻿namespace FiapCloudGames.Catalog.Presentation.Features.Games;
 
 internal static class QueryGameHttpMappings
 {

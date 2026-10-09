@@ -1,8 +1,4 @@
-﻿using FiapCloudGames.Catalog.Application.Abstractions.Persistence;
-using FiapCloudGames.Catalog.Domain.Games;
-using Microsoft.Extensions.Logging;
-
-namespace FiapCloudGames.Catalog.Application.Features.Games.Create;
+﻿namespace FiapCloudGames.Catalog.Application.Features.Games.Create;
 
 public sealed class CreateGameService(
     IGameRepository gameRepository,

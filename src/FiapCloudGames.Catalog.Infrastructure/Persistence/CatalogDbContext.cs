@@ -1,8 +1,4 @@
-﻿using FiapCloudGames.Catalog.Application.Abstractions.Persistence;
-using FiapCloudGames.Catalog.Domain.Games;
-using Microsoft.EntityFrameworkCore;
-
-namespace FiapCloudGames.Catalog.Infrastructure.Persistence;
+﻿namespace FiapCloudGames.Catalog.Infrastructure.Persistence;
 
 public sealed class CatalogDbContext(DbContextOptions<CatalogDbContext> options) : DbContext(options), ICatalogUnitOfWork
 {

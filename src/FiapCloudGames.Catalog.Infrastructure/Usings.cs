@@ -1,0 +1,14 @@
+﻿global using FiapCloudGames.Catalog.Application;
+global using FiapCloudGames.Catalog.Application.Abstractions.Persistence;
+global using FiapCloudGames.Catalog.Domain.Games;
+global using FiapCloudGames.Catalog.Domain.Games.Queries;
+global using FiapCloudGames.Catalog.Domain.Pagination;
+global using FiapCloudGames.Catalog.Infrastructure.Health;
+global using FiapCloudGames.Catalog.Infrastructure.Persistence;
+global using FiapCloudGames.Catalog.Infrastructure.Persistence.Repositories;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Diagnostics.HealthChecks;

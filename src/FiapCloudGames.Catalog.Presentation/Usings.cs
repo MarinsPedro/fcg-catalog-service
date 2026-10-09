@@ -1,0 +1,17 @@
+﻿global using FiapCloudGames.BuildingBlocks.Authentication;
+global using FiapCloudGames.BuildingBlocks.Web;
+global using FiapCloudGames.Catalog.Application.Features.Games;
+global using FiapCloudGames.Catalog.Application.Features.Games.Activate;
+global using FiapCloudGames.Catalog.Application.Features.Games.Create;
+global using FiapCloudGames.Catalog.Application.Features.Games.Deactivate;
+global using FiapCloudGames.Catalog.Application.Features.Games.Get;
+global using FiapCloudGames.Catalog.Application.Features.Games.List;
+global using FiapCloudGames.Catalog.Application.Features.Games.Update;
+global using FiapCloudGames.Catalog.Presentation.Authorization;
+global using FiapCloudGames.Catalog.Presentation.Pagination;
+global using FiapCloudGames.Catalog.Presentation.Pagination.Base;
+global using Microsoft.AspNetCore.Authorization;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.Extensions.DependencyInjection;
+global using System.ComponentModel.DataAnnotations;

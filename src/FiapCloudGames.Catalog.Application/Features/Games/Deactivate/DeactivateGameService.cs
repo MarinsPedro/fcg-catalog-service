@@ -1,9 +1,4 @@
-﻿using FiapCloudGames.BuildingBlocks.Exceptions;
-using FiapCloudGames.Catalog.Application.Abstractions.Persistence;
-using FiapCloudGames.Catalog.Domain.Games;
-using Microsoft.Extensions.Logging;
-
-namespace FiapCloudGames.Catalog.Application.Features.Games.Deactivate;
+﻿namespace FiapCloudGames.Catalog.Application.Features.Games.Deactivate;
 
 public sealed class DeactivateGameService(
     IGameRepository gameRepository,

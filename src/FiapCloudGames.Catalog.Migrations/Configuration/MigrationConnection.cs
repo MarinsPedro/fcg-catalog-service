@@ -1,7 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-
-namespace FiapCloudGames.Catalog.Migrations.Configuration;
+﻿namespace FiapCloudGames.Catalog.Migrations.Configuration;
 
 internal static class MigrationConnection
 {

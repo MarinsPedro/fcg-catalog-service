@@ -1,9 +1,4 @@
-﻿using FiapCloudGames.BuildingBlocks.Exceptions;
-using FiapCloudGames.Catalog.Application.Pagination;
-using FiapCloudGames.Catalog.Domain.Games;
-using Microsoft.Extensions.Logging;
-
-namespace FiapCloudGames.Catalog.Application.Features.Games.List;
+﻿namespace FiapCloudGames.Catalog.Application.Features.Games.List;
 
 public sealed class ListGameService(
     IGameRepository gameRepository,

@@ -1,6 +1,4 @@
-﻿using FiapCloudGames.Catalog.Presentation.Pagination.Base;
-
-namespace FiapCloudGames.Catalog.Presentation.Features.Games;
+﻿namespace FiapCloudGames.Catalog.Presentation.Features.Games;
 
 public sealed class GameQueryRequest : QueryRequestBase
 {

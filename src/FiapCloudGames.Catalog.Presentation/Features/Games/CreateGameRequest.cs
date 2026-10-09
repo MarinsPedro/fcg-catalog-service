@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace FiapCloudGames.Catalog.Presentation.Features.Games;
+﻿namespace FiapCloudGames.Catalog.Presentation.Features.Games;
 
 public sealed record CreateGameRequest(
     [Required, StringLength(160, MinimumLength = 2)] string Title,

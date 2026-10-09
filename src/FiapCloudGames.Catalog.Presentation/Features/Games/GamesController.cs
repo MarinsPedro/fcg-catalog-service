@@ -1,17 +1,4 @@
-﻿using FiapCloudGames.BuildingBlocks.Web;
-using FiapCloudGames.Catalog.Application.Features.Games.Activate;
-using FiapCloudGames.Catalog.Application.Features.Games.Create;
-using FiapCloudGames.Catalog.Application.Features.Games.Deactivate;
-using FiapCloudGames.Catalog.Application.Features.Games.Get;
-using FiapCloudGames.Catalog.Application.Features.Games.List;
-using FiapCloudGames.Catalog.Application.Features.Games.Update;
-using FiapCloudGames.Catalog.Presentation.Authorization;
-using FiapCloudGames.Catalog.Presentation.Pagination;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
-namespace FiapCloudGames.Catalog.Presentation.Features.Games;
+﻿namespace FiapCloudGames.Catalog.Presentation.Features.Games;
 
 [ApiController]
 [Route("v1/games")]

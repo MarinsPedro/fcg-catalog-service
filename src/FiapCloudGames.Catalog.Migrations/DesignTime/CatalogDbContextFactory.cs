@@ -1,9 +1,4 @@
-﻿using FiapCloudGames.Catalog.Infrastructure.Persistence;
-using FiapCloudGames.Catalog.Migrations.Configuration;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
-
-namespace FiapCloudGames.Catalog.Migrations.DesignTime;
+﻿namespace FiapCloudGames.Catalog.Migrations.DesignTime;
 
 public sealed class CatalogDbContextFactory : IDesignTimeDbContextFactory<CatalogDbContext>
 {
