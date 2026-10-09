@@ -1,5 +1,6 @@
 ﻿using FiapCloudGames.Catalog.Domain.Games;
 using FiapCloudGames.Catalog.Domain.Games.Queries;
+using FiapCloudGames.Catalog.Domain.Pagination;
 using Microsoft.EntityFrameworkCore;
 
 namespace FiapCloudGames.Catalog.Infrastructure.Persistence.Repositories;
@@ -26,12 +27,12 @@ internal sealed class GameRepository(CatalogDbContext dbContext) : IGameReposito
             .ToListAsync(cancellationToken);
     }
 
-    public async Task<IReadOnlyList<Game>> ListAsync(GameQueryParameters parameters, CancellationToken cancellationToken)
+    public async Task<PagedRepositoryResult<Game>> ListAsync(GameQueryParameters parameters, CancellationToken cancellationToken)
     {
         var query = dbContext.Games.AsNoTracking();
 
         if (parameters.Title is not null)
-            query = query.Where(game => EF.Functions.Like(game.Title, $"%{parameters.Title}%"));
+            query = query.Where(game => EF.Functions.Like(game.Title, $"%{parameters.Title}%")); // TODO: ignorar case sensitive?
 
         if (parameters.MaxPrice is not null)
             query = query.Where(game => game.BasePrice <= GamePrice.Create(parameters.MaxPrice.Value));
@@ -39,12 +40,20 @@ internal sealed class GameRepository(CatalogDbContext dbContext) : IGameReposito
         if (parameters.OnlyActive)
             query = query.Where(game => game.IsActive);
 
+        var totalRecords = await query.CountAsync(cancellationToken);
+
         var result = await query
                         .OrderBy(game => game.Title)
                         .Skip(parameters.Offset)
                         .Take(parameters.Limit)
                         .ToListAsync(cancellationToken);
 
-        return result;
+        var pagedResult = new PagedRepositoryResult<Game>
+        {
+            Records = result,
+            TotalRecords = totalRecords
+        };
+
+        return pagedResult;
     }
 }

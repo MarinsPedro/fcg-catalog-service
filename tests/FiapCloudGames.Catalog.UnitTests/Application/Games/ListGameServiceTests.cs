@@ -20,13 +20,13 @@ public class ListGameServiceTests
             CatalogTestData.NowUtc);
         var fakeRepository = new FakeGameRepository { Games = new List<Game> { game1, game2 } };
         var service = new ListGameService(fakeRepository, NullLogger<ListGameService>.Instance);
-        var input = new GameQueryInput() { Page = 1, PageSize = 10 };
+        var input = new GameQueryInput() { NumberPage = 1, PageSize = 10 };
 
         // Act
         var result = await service.ExecuteAsync(input, CancellationToken.None);
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(2, result.Count());
+        Assert.Equal(2, result.TotalItems);
     }
 }

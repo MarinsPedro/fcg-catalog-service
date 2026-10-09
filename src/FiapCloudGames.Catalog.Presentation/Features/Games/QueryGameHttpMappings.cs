@@ -10,7 +10,7 @@ internal static class QueryGameHttpMappings
             Title = request.Title,
             MaxPrice = request.MaxPrice,
             OnlyActive = true,
-            Page = request.Page,
+            NumberPage = request.NumberPage,
             PageSize = request.PageSize
         };
 }

@@ -10,7 +10,7 @@ public static class GameQueryMapping
             Title = input.Title,
             MaxPrice = input.MaxPrice,
             OnlyActive = input.OnlyActive,
-            Offset = (input.Page - 1) * input.PageSize,
+            Offset = (input.NumberPage - 1) * input.PageSize,
             Limit = input.PageSize
         };
 }

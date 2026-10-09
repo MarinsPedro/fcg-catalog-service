@@ -1,4 +1,6 @@
-﻿namespace FiapCloudGames.Catalog.UnitTests.Support;
+﻿using FiapCloudGames.Catalog.Domain.Pagination;
+
+namespace FiapCloudGames.Catalog.UnitTests.Support;
 
 internal sealed class FakeGameRepository : IGameRepository
 {
@@ -26,12 +28,19 @@ internal sealed class FakeGameRepository : IGameRepository
         return Task.FromResult((IReadOnlyList<Game>)games);
     }
 
-    public Task<IReadOnlyList<Game>> ListAsync(
+    public async Task<PagedRepositoryResult<Game>> ListAsync(
         GameQueryParameters parameters,
         CancellationToken cancellationToken)
     {
-        var result = Task.FromResult((IReadOnlyList<Game>)Games);
-        return result;
+        var result = await Task.FromResult((IReadOnlyList<Game>)Games);
+
+        var pagedResult = new PagedRepositoryResult<Game>
+            {
+                Records = result,
+                TotalRecords = result.Count
+            };
+
+        return pagedResult;
     }
 }
 

@@ -25,6 +25,5 @@
 	</ItemGroup>
 	<ItemGroup>
 		<InternalsVisibleTo Include="FiapCloudGames.Catalog.Database.IntegrationTests" />
-		<!--<InternalsVisibleTo Include="FiapCloudGames.Catalog.IntegrationTests" />-->
 	</ItemGroup>
 </Project>

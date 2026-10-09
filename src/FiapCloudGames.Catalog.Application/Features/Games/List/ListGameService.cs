@@ -1,4 +1,5 @@
 ﻿using FiapCloudGames.BuildingBlocks.Exceptions;
+using FiapCloudGames.Catalog.Application.Pagination;
 using FiapCloudGames.Catalog.Domain.Games;
 using Microsoft.Extensions.Logging;
 
@@ -8,25 +9,30 @@ public sealed class ListGameService(
     IGameRepository gameRepository,
     ILogger<ListGameService> logger)
 {
-    public async Task<IReadOnlyList<GameResult>> ExecuteAsync(GameQueryInput input, CancellationToken cancellationToken)
+    public async Task<PagedResult<GameResult>> ExecuteAsync(GameQueryInput input, CancellationToken cancellationToken)
     {
         CheckInput(input);
 
         logger.LogInformation("Listando jogos (com filtro e paginação aplicados))");
 
         var result = (await gameRepository
-            .ListAsync(input.ToInput(), cancellationToken))
-            .Select(CatalogApplicationMappings.ToResult)
-            .ToArray();
+            .ListAsync(input.ToInput(), cancellationToken));
 
-        logger.LogInformation("Total de {Count} jogos listados com sucesso", result.Length);
+        logger.LogInformation("Total de {Count} jogos listados com sucesso", result.TotalRecords);
 
-        return result;
+        return new PagedResult<GameResult>
+        {
+            Items = result.Records.Select(CatalogApplicationMappings.ToResult).ToList(),
+            Page = input.NumberPage,
+            PageSize = input.PageSize,
+            TotalItems = result.TotalRecords
+        };
     }
 
+    // TODO: mover as validações de paginação para umua classe abstrata.
     private static void CheckInput(GameQueryInput input)
     {
-        if (input.Page < 1)
+        if (input.NumberPage < 1)
             throw AppException.Conflict("O valor de página deve ser maior ou igual a 1.");
 
         if (input.PageSize < 1)

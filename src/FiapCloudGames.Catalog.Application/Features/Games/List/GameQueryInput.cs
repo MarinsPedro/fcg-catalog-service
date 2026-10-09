@@ -1,10 +1,10 @@
-﻿namespace FiapCloudGames.Catalog.Application.Features.Games.List;
+﻿using FiapCloudGames.Catalog.Application.Pagination.Base;
 
-public sealed class GameQueryInput
+namespace FiapCloudGames.Catalog.Application.Features.Games.List;
+
+public sealed class GameQueryInput : QueryInputBase
 {
     public string? Title { get; init; }
     public int? MaxPrice { get; init; }
     public bool OnlyActive { get; init; } = true;
-    public int Page { get; init; }
-    public int PageSize { get; init; }
 }

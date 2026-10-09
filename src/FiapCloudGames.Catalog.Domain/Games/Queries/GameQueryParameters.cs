@@ -1,10 +1,11 @@
-﻿namespace FiapCloudGames.Catalog.Domain.Games.Queries;
+﻿using FiapCloudGames.Catalog.Domain.Pagination.Base;
 
-public sealed class GameQueryParameters
+namespace FiapCloudGames.Catalog.Domain.Games.Queries;
+
+public sealed class GameQueryParameters : QueryParametersBase
 {
     public string? Title { get; init; }
     public int? MaxPrice { get; init; }
     public bool OnlyActive { get; init; }
-    public int Offset { get; init; }
-    public int Limit { get; init; }
+    
 }

@@ -6,6 +6,7 @@ using FiapCloudGames.Catalog.Application.Features.Games.Get;
 using FiapCloudGames.Catalog.Application.Features.Games.List;
 using FiapCloudGames.Catalog.Application.Features.Games.Update;
 using FiapCloudGames.Catalog.Presentation.Authorization;
+using FiapCloudGames.Catalog.Presentation.Pagination;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,15 +21,26 @@ public sealed class GamesController : ControllerBase
 
     [AllowAnonymous]
     [HttpGet]
-    [ProducesResponseType(typeof(IReadOnlyList<GameResponse>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(PagedResponse<GameResponse>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiProblemDetails), StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<IReadOnlyList<GameResponse>>> ListAsync(
+    public async Task<ActionResult<PagedResponse<GameResponse>>> ListAsync(
         [FromQuery] GameQueryRequest request,
         [FromServices] ListGameService service,
         CancellationToken cancellation)
     {
-        var results = await service.ExecuteAsync(request.ToInput(), cancellation); // TODO: mudar de ToInput para ToFilter ?
-        return Ok(results);
+        var results = await service.ExecuteAsync(request.ToInput(), cancellation);
+
+        // TODO: não é o correto fazer um mapeamento aqui, daria pra responder um PageResult<GameResult> e alterar a assinatura do método para Task<IActionResult>, para evitar essa transformação aqui.
+        var pagedResponse = new PagedResponse<GameResponse>
+        {
+            Items = results.Items.Select(x => x.ToResponse()).ToList(),
+            Page = results.Page,
+            PageSize = results.PageSize,
+            TotalItems = results.TotalItems,
+            TotalPages = results.TotalPages
+        };
+
+        return Ok(pagedResponse);
     }
 
     [AllowAnonymous]
