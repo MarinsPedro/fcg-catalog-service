@@ -13,6 +13,9 @@ public readonly record struct GamePrice
     {
         if (amount < 0)
             throw new DomainRuleViolationException("O preço base não pode ser negativo.");
+        
+        if (amount > 9999999999.99m)
+            throw new DomainRuleViolationException("O preço base não pode ser maior que 9999999999.99.");
 
         return new GamePrice(decimal.Round(amount, 2, MidpointRounding.ToEven));
     }
