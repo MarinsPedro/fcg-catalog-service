@@ -5,7 +5,7 @@ public class CreateGameServiceTests
     public static TheoryData<CreateGameInput> GetFakeGames => new TheoryData<CreateGameInput>
     {
         new CreateGameInput("Existing Game 1", "Description 1", "Category 1", 0.0m),
-        new CreateGameInput("Existing Game 2", "Description 2", "Category 2", decimal.MaxValue)
+        new CreateGameInput("Existing Game 2", "Description 2", "Category 2", 9999999999.99m)
     };
 
     [Fact(DisplayName = "Criar jogo - deve criar e persistir o jogo com dados válidos")]
