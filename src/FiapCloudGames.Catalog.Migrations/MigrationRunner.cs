@@ -12,13 +12,13 @@ internal sealed class MigrationRunner(CatalogDbContext dbContext, ILogger<Migrat
 
             if (pending.Length == 0)
             {
-                logger.LogInformation("O banco do Identity já está atualizado.");
+                logger.LogInformation("O banco do Catalog já está atualizado.");
             }
             else
             {
-                logger.LogInformation("Aplicando {MigrationCount} migration(s) do Identity: {Migrations}.", pending.Length, string.Join(", ", pending));
+                logger.LogInformation("Aplicando {MigrationCount} migration(s) do Catalog: {Migrations}.", pending.Length, string.Join(", ", pending));
                 await dbContext.Database.MigrateAsync(cancellationToken);
-                logger.LogInformation("Migrations do Identity aplicadas com sucesso.");
+                logger.LogInformation("Migrations do Catalog aplicadas com sucesso.");
             }
         }
         catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested)
@@ -28,7 +28,7 @@ internal sealed class MigrationRunner(CatalogDbContext dbContext, ILogger<Migrat
         }
         catch (Exception exception)
         {
-            logger.LogCritical(exception, "Falha ao aplicar as migrations do Identity.");
+            logger.LogCritical(exception, "Falha ao aplicar as migrations do Catalog.");
             throw;
         }
     }
