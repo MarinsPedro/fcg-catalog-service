@@ -15,25 +15,19 @@ public static class DependencyInjection
                 policy => policy
                     .RequireAuthenticatedUser()
                     .RequireServiceToken()
-                    .RequireClaim(FiapClaimTypes.Scope, "catalog.games.create"));
+                    .RequireScopes("catalog.games.create"));
             options.AddPolicy(
                 CatalogPolicies.GamesRead,
                 policy => policy
                     .RequireAuthenticatedUser()
                     .RequireServiceToken()
-                    .RequireClaim(FiapClaimTypes.Scope, "catalog.games.read"));
+                    .RequireScopes("catalog.games.read"));
             options.AddPolicy(
                 CatalogPolicies.GamesWrite,
                 policy => policy
                     .RequireAuthenticatedUser()
                     .RequireServiceToken()
-                    .RequireClaim(FiapClaimTypes.Scope, "catalog.games.write"));
-            options.AddPolicy(
-                CatalogPolicies.AuditRead,
-                policy => policy
-                    .RequireAuthenticatedUser()
-                    .RequireServiceToken()
-                    .RequireClaim(FiapClaimTypes.Scope, "catalog.audit.read"));
+                    .RequireScopes("catalog.games.write"));
         });
 
         return services;

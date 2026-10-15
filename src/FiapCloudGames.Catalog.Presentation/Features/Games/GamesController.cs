@@ -6,7 +6,7 @@ public sealed class GamesController : ControllerBase
 {
     private const string GetByIdRoute = "Catalog.Games.GetByIdAsync";
 
-    [AllowAnonymous]
+    [Authorize(Policy = CatalogPolicies.GamesRead)]
     [HttpGet]
     [ProducesResponseType(typeof(PagedResponse<GameResponse>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -30,7 +30,7 @@ public sealed class GamesController : ControllerBase
         return Ok(pagedResponse);
     }
 
-    [AllowAnonymous]
+    [Authorize(Policy = CatalogPolicies.GamesRead)]
     [HttpGet("{id:guid}", Name = GetByIdRoute)]
     [ProducesResponseType(typeof(GameResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiProblemDetails), StatusCodes.Status404NotFound)]
@@ -44,8 +44,7 @@ public sealed class GamesController : ControllerBase
         return Ok(result.ToResponse());
     }
 
-    // TODO: verificar o building blocks.
-    // [Authorize(Policy = CatalogPolicies.GamesCreate)]
+    [Authorize(Policy = CatalogPolicies.GamesCreate)]
     [HttpPost]
     [ProducesResponseType<GameResponse>(StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ApiProblemDetails), StatusCodes.Status400BadRequest)]
@@ -63,7 +62,7 @@ public sealed class GamesController : ControllerBase
         return CreatedAtRoute(GetByIdRoute, new { id = response.Id }, response);
     }
 
-    // [Authorize(Roles = "Administrator")]
+    [Authorize(Policy = CatalogPolicies.GamesWrite)]
     [HttpPut("{id:guid}")]
     [ProducesResponseType(typeof(GameResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiProblemDetails), StatusCodes.Status400BadRequest)]
@@ -82,7 +81,7 @@ public sealed class GamesController : ControllerBase
         return Ok(result.ToResponse());
     }
 
-    // [Authorize(Roles = "Administrator")]
+    [Authorize(Policy = CatalogPolicies.GamesWrite)]
     [HttpPost("activate/{id:guid}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(typeof(ApiProblemDetails), StatusCodes.Status401Unauthorized)]
@@ -99,7 +98,7 @@ public sealed class GamesController : ControllerBase
         return NoContent();
     }
 
-    // [Authorize(Roles = "Administrator")]
+    [Authorize(Policy = CatalogPolicies.GamesWrite)]
     [HttpDelete("deactivate/{id:guid}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(typeof(ApiProblemDetails), StatusCodes.Status401Unauthorized)]

@@ -2,8 +2,8 @@
 	<ItemGroup>
 		<ProjectReference Include="..\FiapCloudGames.Catalog.Application\FiapCloudGames.Catalog.Application.csproj" />
 		<ProjectReference Include="..\FiapCloudGames.Catalog.Domain\FiapCloudGames.Catalog.Domain.csproj" />
-		<PackageReference Include="FiapCloudGames.BuildingBlocks" />
-		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+		<ProjectReference Include="$(LocalBuildingBlocksProject)" Condition="'$(UseLocalBuildingBlocks)' == 'true'" />
+		<PackageReference Include="FiapCloudGames.BuildingBlocks" Condition="'$(UseLocalBuildingBlocks)' != 'true'" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" />
 		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
 	</ItemGroup>

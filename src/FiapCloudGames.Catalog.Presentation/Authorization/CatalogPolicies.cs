@@ -5,5 +5,4 @@ public static class CatalogPolicies
     public const string GamesCreate = "catalog.games.create";
     public const string GamesRead = "catalog.games.read";
     public const string GamesWrite = "catalog.games.write";
-    public const string AuditRead = "catalog.audit.read"; // TODO: apenas manter se houver auditoria.
 }

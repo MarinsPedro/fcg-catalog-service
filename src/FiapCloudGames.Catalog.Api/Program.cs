@@ -2,12 +2,10 @@
 
 builder.AddFiapServiceDefaults();
 builder.Services.AddFiapApiDefaults();
+builder.Services.AddFiapServiceAuthentication(builder.Configuration);
 builder.Services.AddCatalogInfrastructure(builder.Configuration);
 builder.Services.AddCatalogPresentation();
 builder.Services.AddCatalogOpenApi();
-
-//TODO: verificar o building blocks.
-//builder.Services.AddFiapServiceAuthentication(builder.Configuration);
 
 var app = builder.Build();
 
