@@ -407,6 +407,5 @@ secrets/
 .vs/
 .idea/
 NuGet.Config.local
-NuGet.Config
 
 # End of https://www.toptal.com/developers/gitignore/api/csharp
